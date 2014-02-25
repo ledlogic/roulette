@@ -1,0 +1,73 @@
+/* Styles for the roulette application */
+
+body, p {
+    background: #ffffff;
+    color: #000090;
+    font-family: "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
+    font-size: 90%;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+#header {
+	border-bottom: 1px solid #ffffff;
+}
+#footer {
+	border-top: 1px solid #ffffff;
+	font-size: 80%;
+	text-align: center;
+}
+#body {
+	height: 300px;
+	margin: 10px;
+	text-align: center;
+	vertical-align: top;
+}
+#wheel {
+	border: 1px solid #e0e0e0;
+	float: left;
+	position: relative;
+	height: 300px;
+ 	left: 50%;
+ 	margin-left: -200px;
+ 	width: 300px;
+}
+#controls {
+	float: left;
+	position: relative;
+	height: 300px;
+}
+#controls ul {
+	border: 1px solid #000090;
+	color: #000090;
+	font-size: 90%;
+	list-style: none;
+	padding: 10px;
+}
+#controls ul li {
+	padding: 10px;
+}
+#notes {
+	float: right;
+}
+#notes ul {
+	background-color: #e0e0e0;
+	border: 1px solid #000090;
+	color: #000090;
+	font-size: 70%;
+	list-style: none;
+	padding: 10px;
+}
+#notes li {
+	text-align: left;
+}
+#notes li .date {
+	font-style: italic;
+}
+#notes li .description {
+	
+}
+#notes:after {
+	clear: both;
+}

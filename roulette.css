@@ -1,0 +1,111 @@
+/* Styles for the roulette application */
+
+body, p {
+    background: #ffffff;
+    color: #000090;
+    font-family: "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
+    font-size: 90%;
+	padding: 10px;
+	margin: 0;
+}
+h1 {
+	color: #000000;
+	margin: 0;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+#header {
+	background-image: url(ledlogic03.gif);
+	background-repeat: no-repeat;
+	border-bottom: 1px solid #e0e0e0;
+	padding: 10px 10px 10px 310px;
+	height: 80px;
+}
+#footer {
+	border-top: 1px solid #ffffff;
+	font-size: 80%;
+	margin-top: 10px;
+	text-align: center;
+}
+#body {
+	height: 400px;
+	margin: 10px;
+	text-align: center;
+	vertical-align: top;
+}
+#rouletteTable {
+	border: 1px solid #e0e0e0;
+	float: left;
+	height: 530px;
+	left: 50%;
+	margin-left: -400px;
+	padding: 10px;
+	position: relative;
+	width: 424px;
+}
+#rouletteWheel {
+	border: 1px solid #e0e0e0;
+	float: left;
+	height: 300px;
+	position: relative;
+	width: 300px;
+}
+#ballWheel {
+	border: 1px solid #e0e0e0;
+	float: left;
+	height: 300px;
+	position: relative;
+	margin-left: 10px;
+ 	width: 100px;
+}
+.clearfix {
+	clear: both;
+}
+#chipTable {
+	background-image: url(table.jpg);
+	border: 1px solid #e0e0e0;
+	height: 216px;
+	margin-left: -20px;
+	margin-top: 10px;
+	width: 345px;
+}
+#controls {
+	float: left;
+	position: relative;
+	height: 300px;
+}
+#controls ul {
+	border: 1px solid #e0e0e0;
+	color: #000090;
+	font-size: 90%;
+	list-style: none;
+	padding: 10px;
+}
+#controls ul li {
+	padding: 10px;
+}
+#notes {
+	float: right;
+}
+#notes ul {
+	background-color: #e0e0e0;
+	border: 1px solid #e0e0e0;
+	color: #000090;
+	font-size: 70%;
+	list-style: none;
+	padding: 10px;
+}
+#notes li {
+	text-align: left;
+}
+#notes li .date {
+	font-style: italic;
+}
+#notes li .description {
+	
+}
+#notes:after {
+	clear: both;
+}

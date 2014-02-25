@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Roulette</title>
+        <link rel="stylesheet" href="roulette.css" media="screen">
+        <script src="raphael.js"></script>
+        <script src="roulette.js"></script>
+    </head>
+    <body>
+       <div id="header">
+    		<h1>Roulette</h1>
+    		<p>Raphaël-rendered roulette wheel.</p>
+       </div>
+       <div id="body">
+        	<div id="controls">
+        		<ul>
+        			<li><a href="#" onclick="rouletteSpinner.doTogglePause()">Pause / Play</a></li>
+        			<li><a href="#" onclick="rouletteSpinner.doRollBall()">Roll Ball</a></li>
+        			<li><a href="#" onclick="rouletteSpinner.doTakeBall()">Take Ball</a></li>
+        		</ul>
+        	</div>
+        	<div id="rouletteTable">
+        		<div id="rouletteWheel"></div>
+        		<div id="ballWheel"></div>
+        		<div class="clearfix"></div>
+				<div id="chipTable"></div>
+        	</div>
+       </div>
+       
+       <div class="clearfix"></div>
+
+       <div id="footer">
+       		<p>&copy; 2010 Jeff D. Conrad.  <a href="https://github.com/ledlogic/roulette/blob/master/LICENSE">MIT License.</a></p>
+       </div>
+    </body>
+</html>
