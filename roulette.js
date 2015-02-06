@@ -481,6 +481,7 @@ var ball = {
 	},
 	stop: function() {
 		this.stopped = true;
+		this.sa = this.roulette.roundAngle(this.sa);
 		var w = this.detWinningNumber();
 		console.log("Winner: w[" + w + "]");
 	},
