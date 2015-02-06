@@ -1,6 +1,6 @@
 /*
  * Roulette wheel renderer
- * Copyright (c) 2010 Jeff D. Conrad
+ * Copyright (c) 2010-2015 Jeff D. Conrad
  */
 
 function Rgb(r, g, b) {
@@ -119,6 +119,7 @@ var roulette = {
 			var flag = (a2 - a1) > 180;
             var clr = (a2 - a1) / 360;
             
+            // to radians
             a1 = a1 * Math.PI / 180;
             a2 = a2 * Math.PI / 180;
             
@@ -145,6 +146,7 @@ var roulette = {
 			var flag = (a2 - a1) > 180;
             var clr = (a2 - a1) / 360;
             
+            // to radians
             a1 = a1 * Math.PI / 180;
             a2 = a2 * Math.PI / 180;
             
@@ -218,15 +220,9 @@ var roulette = {
 		for (var segIndex = 0; segIndex < roulette.seg.length; segIndex++) {
 			var a1 = segIndex * roulette.aps + roulette.sa;
 			var a2 = (segIndex + 1) * roulette.aps + roulette.sa;
-			while (a1 > 360.0) {
-				a1 -= 360.0;
-			}
-			while (a2 > 360.0) {
-				a2 -= 360.0;
-			}
-			while (at > 360.0) {
-				at -= 360.0;
-			}
+			a1 = this.limitAngle(a1);
+			a2 = this.limitAngle(a2);
+			at = this.limitAngle(at);
 			if (a1 - 180.0 > 0 && a2 - 180.0 < 0) {
 				a1 += 360.0;
 				a2 += 360.0;
@@ -237,6 +233,13 @@ var roulette = {
 			}
 		}
 		return at;
+	},
+	limitAngle: function (a) {
+		ret = a;
+		while (ret > 360.0) {
+			ret -= 360.0;
+		}
+		return ret;
 	},
 	renderBallWheel: function() {
 		// roulette wheel
@@ -437,6 +440,7 @@ var ball = {
 		var trm = d * 0.015;
 		
 		var a = (this.sa) * Math.PI / 180;
+		
 		var tx = x + tr * Math.cos(a);
 		var ty = y + tr * Math.sin(a);
 		
@@ -477,7 +481,27 @@ var ball = {
 	},
 	stop: function() {
 		this.stopped = true;
-		this.sa = this.roulette.roundAngle(this.sa);
+		var w = this.detWinningNumber();
+		console.log("Winner: w[" + w + "]");
+	},
+	detWinningNumber: function() {
+		// search segments for ballangle
+		for (var segIndex = 0; segIndex < roulette.seg.length; segIndex++) {
+			var seg = roulette.seg[segIndex];
+		
+		 	var a1 = segIndex * roulette.aps + roulette.sa;
+		 	var a2 = (segIndex + 1) * roulette.aps + roulette.sa;
+			
+			seg.a1 = roulette.limitAngle(a1);
+            seg.a2 = roulette.limitAngle(a2);
+
+			//console.log("seg.number[" + seg.number + "], seg.a1[" + seg.a1 + "], seg.a2["
+			//           + seg.a2 + "], ball.sa[" + ball.sa + "]");
+			if (seg.a1 <= ball.sa && seg.a2 >= ball.sa) {
+				return seg.number;
+			}
+		}
+		return -1;
 	}
 }
 
